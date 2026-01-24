@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spechunter.net - Coming Soon</title>
+    <style>
+        /* --- RESET & BASIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050505; /* Diepzwart */
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- ACHTERGROND GRID --- */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* --- RADAR ANIMATIE --- */
+        .radar-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .radar-core {
+            width: 20px;
+            height: 20px;
+            background-color: #00ff88; /* Tech Groen */
+            border-radius: 50%;
+            box-shadow: 0 0 15px #00ff88;
+            z-index: 2;
+        }
+
+        .radar-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #00ff88;
+            border-radius: 50%;
+            opacity: 0;
+            animation: pulse 2s infinite ease-out;
+        }
+
+        .radar-pulse:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* --- TYPOGRAFIE --- */
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: #00ff88;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        /* --- FORMULIER --- */
+        .notify-form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="email"]:focus {
+            border-color: #00ff88;
+        }
+
+        button {
+            padding: 15px 25px;
+            background-color: #00ff88;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00cc6a;
+            transform: translateY(-2px);
+        }
+
+        /* --- SUCCESS MESSAGE (Hidden by default) --- */
+        .success-message {
+            display: none;
+            color: #00ff88;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: 60px;
+            font-size: 0.8rem;
+            color: #444;
+        }
+
+        /* --- MOBIEL --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .notify-form { flex-direction: column; }
+            button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <div class="container">
+        <div class="radar-wrapper">
+            <div class="radar-core"></div>
+            <div class="radar-pulse"></div>
+            <div class="radar-pulse"></div>
+        </div>
+
+        <h1>Spec<span>Hunter</span>.net</h1>
+        <p class="subtitle">
+            We zijn onze database aan het laden.<br>
+            De snelste vergelijker voor smartphone specs en deals komt eraan.
+        </p>
+
+        <form class="notify-form" id="signupForm">
+            <input type="email" placeholder="Je e-mailadres..." required>
+            <button type="submit">Houd me op de hoogte</button>
+        </form>
+
+        <div class="success-message" id="successMsg">
+            Bedankt! Je staat op de radar. 🎯
+        </div>
+
+        <footer>
+            &copy; 2026 Spechunter.net - All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        // Simpel scriptje om het formulier 'werkend' te laten lijken
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Voorkomt dat de pagina herlaadt
+            
+            // Verberg formulier, toon succes bericht
+            this.style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
