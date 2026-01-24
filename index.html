@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpecHunter.net - Coming Soon</title>
     <style>
-        /* --- RESET & BASIS --- */
+        /* --- RESET & BASIC --- */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +14,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #050505; /* Diepzwart */
+            background-color: #050505; /* Deep Black */
             color: #ffffff;
             height: 100vh;
             display: flex;
@@ -24,7 +24,7 @@
             position: relative;
         }
 
-        /* --- ACHTERGROND GRID --- */
+        /* --- BACKGROUND GRID --- */
         .grid-bg {
             position: absolute;
             top: 0;
@@ -47,7 +47,7 @@
             width: 100%;
         }
 
-        /* --- RADAR ANIMATIE --- */
+        /* --- RADAR ANIMATION --- */
         .radar-wrapper {
             position: relative;
             width: 80px;
@@ -61,7 +61,7 @@
         .radar-core {
             width: 20px;
             height: 20px;
-            background-color: #00ff88; /* Tech Groen */
+            background-color: #00ff88; /* Tech Green */
             border-radius: 50%;
             box-shadow: 0 0 15px #00ff88;
             z-index: 2;
@@ -86,7 +86,7 @@
             100% { transform: scale(1.5); opacity: 0; }
         }
 
-        /* --- TYPOGRAFIE --- */
+        /* --- TYPOGRAPHY --- */
         h1 {
             font-size: 3rem;
             font-weight: 800;
@@ -106,7 +106,7 @@
             line-height: 1.5;
         }
 
-        /* --- FORMULIER --- */
+        /* --- FORM --- */
         .notify-form {
             display: flex;
             gap: 10px;
@@ -163,7 +163,7 @@
             color: #444;
         }
 
-        /* --- MOBIEL --- */
+        /* --- MOBILE --- */
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
             .notify-form { flex-direction: column; }
@@ -184,17 +184,17 @@
 
         <h1>Spec<span>Hunter</span>.net</h1>
         <p class="subtitle">
-            We zijn onze database aan het laden.<br>
-            De snelste vergelijker voor smartphone specs en deals komt eraan.
+            We are loading our database.<br>
+            The fastest comparison tool for smartphone specs and deals is coming soon.
         </p>
 
         <form class="notify-form" id="signupForm">
-            <input type="email" placeholder="Je e-mailadres..." required>
-            <button type="submit">Houd me op de hoogte</button>
+            <input type="email" placeholder="Enter your email..." required>
+            <button type="submit">Notify Me</button>
         </form>
 
         <div class="success-message" id="successMsg">
-            Bedankt! Je staat op de radar. 🎯
+            Thanks! You are on the radar. 🎯
         </div>
 
         <footer>
@@ -203,11 +203,11 @@
     </div>
 
     <script>
-        // Simpel scriptje om het formulier 'werkend' te laten lijken
+        // Simple script to simulate form submission
         document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Voorkomt dat de pagina herlaadt
+            e.preventDefault(); // Prevent page reload
             
-            // Verberg formulier, toon succes bericht
+            // Hide form, show success message
             this.style.display = 'none';
             document.getElementById('successMsg').style.display = 'block';
         });
