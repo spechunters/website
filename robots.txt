@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.spechunter.net/sitemap.xml
+Sitemap: https://spechunter.net/sitemap.xml
