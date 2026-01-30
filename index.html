@@ -6,7 +6,6 @@
     
     <meta name="google-adsense-account" content="ca-pub-7579757439020297">
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7NPG1YG2P"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -102,7 +101,7 @@
         </p>
 
         <form class="notify-form" id="signupForm">
-            <input type="email" placeholder="Enter your email for early access..." required>
+            <input type="email" name="email" placeholder="Enter your email for early access..." required>
             <button type="submit">Notify Me</button>
         </form>
 
@@ -118,9 +117,32 @@
     <script>
         document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            this.style.display = 'none';
-            document.getElementById('successMsg').style.display = 'block';
-            console.log("Formulier verzonden!"); 
+            
+            var form = this;
+            var data = new FormData(form);
+            
+            fetch("https://formspree.io/f/mlgnolnw", {
+                method: "POST",
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('successMsg').style.display = 'block';
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("Oops! There was a problem submitting your form");
+                        }
+                    });
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem submitting your form");
+            });
         });
     </script>
 
