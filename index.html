@@ -3,43 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="google-adsense-account" content="ca-pub-7579757439020297">
-    
+
+    <link rel="icon" type="image/png" href="fav.png">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7NPG1YG2P"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-V7NPG1YG2P');
     </script>
 
-    <title>SpecHunter - Ultimate Smartphone Specs & Price Comparison</title>
-    <meta name="description" content="SpecHunter is the fastest database to compare specifications and prices of 15,000+ smartphones. Real-time tracking for Samsung, Apple, Xiaomi & more. Launching 2026.">
-    <meta name="keywords" content="smartphone specs, phone comparison, tech database, price tracker, samsung, iphone, xiaomi, android specs">
+    <title>SpecHunter - Ultimate Smartphone Specs & Price Comparison 2026</title>
+    <meta name="description" content="SpecHunter is the upcoming database to compare specifications and prices of 15,000+ smartphones. Track Samsung, Apple & Xiaomi. Launching 2026.">
     <meta name="author" content="SpecHunter Team">
     <meta name="robots" content="index, follow">
     
     <link rel="canonical" href="https://spechunter.net/">
 
     <meta property="og:title" content="SpecHunter - The Future of Phone Comparison">
-    <meta property="og:description" content="We are building the ultimate database with 15,000+ devices. Compare specs and prices instantly. Get notified when we launch.">
+    <meta property="og:description" content="We are building the ultimate database with 15,000+ devices. Compare specs and prices instantly.">
     <meta property="og:url" content="https://spechunter.net/">
     <meta property="og:type" content="website">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "SpecHunter",
       "url": "https://spechunter.net/",
-      "description": "The fastest comparison tool for smartphone specs and deals.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://spechunter.net/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "description": "The fastest comparison tool for smartphone specs and deals."
     }
     </script>
 
@@ -63,20 +57,31 @@
             z-index: 1; 
         }
         .container { text-align: center; z-index: 10; padding: 20px; max-width: 600px; width: 100%; }
+        
+        /* Radar animatie (Verwijder dit blok als je het logo wilt gebruiken) */
         .radar-wrapper { position: relative; width: 80px; height: 80px; margin: 0 auto 30px; display: flex; justify-content: center; align-items: center; }
         .radar-core { width: 20px; height: 20px; background-color: #00ff88; border-radius: 50%; box-shadow: 0 0 15px #00ff88; z-index: 2; }
         .radar-pulse { position: absolute; width: 100%; height: 100%; border: 2px solid #00ff88; border-radius: 50%; opacity: 0; animation: pulse 2s infinite ease-out; }
         .radar-pulse:nth-child(2) { animation-delay: 0.6s; }
         @keyframes pulse { 0% { transform: scale(0.1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
-        h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -1px; text-transform: uppercase; }
-        h1 span { color: #00ff88; }
-        p.subtitle { font-size: 1.2rem; color: #888; margin-bottom: 40px; line-height: 1.5; }
+
+        /* Als je toch je logo wilt gebruiken i.p.v. radar, gebruik deze class: */
+        .main-logo { width: 100px; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+
+        h1 { font-size: 3rem; font-weight: 800; margin-bottom: 5px; letter-spacing: -1px; text-transform: uppercase; line-height: 1.1; }
+        h1 span.highlight { color: #00ff88; }
+        h1 span.subtext { display: block; font-size: 1rem; font-weight: 400; color: #888; text-transform: none; letter-spacing: 0; margin-top: 5px;}
+        
+        p.subtitle { font-size: 1.2rem; color: #ccc; margin-bottom: 40px; line-height: 1.5; margin-top: 20px; }
+        
         .notify-form { display: flex; gap: 10px; justify-content: center; max-width: 400px; margin: 0 auto; }
         input[type="email"] { flex: 1; padding: 15px; border-radius: 8px; border: 1px solid #333; background: rgba(255, 255, 255, 0.05); color: white; font-size: 1rem; outline: none; transition: border-color 0.3s; }
         input[type="email"]:focus { border-color: #00ff88; }
         button { padding: 15px 25px; background-color: #00ff88; color: #000; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: transform 0.2s, background-color 0.3s; }
         button:hover { background-color: #00cc6a; transform: translateY(-2px); }
+        
         footer { margin-top: 60px; font-size: 0.8rem; color: #444; }
+        
         @media (max-width: 600px) { h1 { font-size: 2rem; } .notify-form { flex-direction: column; } button { width: 100%; } }
     </style>
 </head>
@@ -85,18 +90,22 @@
     <div class="grid-bg"></div>
 
     <div class="container">
+        
         <div class="radar-wrapper">
             <div class="radar-core"></div>
             <div class="radar-pulse"></div>
             <div class="radar-pulse"></div>
         </div>
 
-        <h1>Spec<span>Hunter</span>.net</h1>
+        <h1>
+            Spec<span class="highlight">Hunter</span>.net
+            <span class="subtext">Smartphone Database & Price Comparison</span>
+        </h1>
         
         <p class="subtitle">
             Building the ultimate database.<br>
             Compare <strong>15,000+ smartphones</strong> from Samsung, Apple, Xiaomi & more. 
-            Real-time price tracking and deep specs coming soon.
+            Real-time tracking coming soon.
         </p>
 
         <form class="notify-form" action="https://formspree.io/f/mlgnolnw" method="POST">
@@ -105,7 +114,7 @@
         </form>
 
         <footer>
-            &copy; 2026 SpecHunter.net - Smartphone Database & Price Comparison.
+            &copy; 2026 SpecHunter.net
         </footer>
     </div>
 
