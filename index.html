@@ -76,7 +76,6 @@
         input[type="email"]:focus { border-color: #00ff88; }
         button { padding: 15px 25px; background-color: #00ff88; color: #000; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: transform 0.2s, background-color 0.3s; }
         button:hover { background-color: #00cc6a; transform: translateY(-2px); }
-        .success-message { display: none; color: #00ff88; margin-top: 20px; font-weight: bold; }
         footer { margin-top: 60px; font-size: 0.8rem; color: #444; }
         @media (max-width: 600px) { h1 { font-size: 2rem; } .notify-form { flex-direction: column; } button { width: 100%; } }
     </style>
@@ -100,51 +99,15 @@
             Real-time price tracking and deep specs coming soon.
         </p>
 
-        <form class="notify-form" id="signupForm">
+        <form class="notify-form" action="https://formspree.io/f/mlgnolnw" method="POST">
             <input type="email" name="email" placeholder="Enter your email for early access..." required>
             <button type="submit">Notify Me</button>
         </form>
-
-        <div class="success-message" id="successMsg">
-            Thanks! You are on the radar. 🎯
-        </div>
 
         <footer>
             &copy; 2026 SpecHunter.net - Smartphone Database & Price Comparison.
         </footer>
     </div>
-
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var form = this;
-            var data = new FormData(form);
-            
-            fetch("https://formspree.io/f/mlgnolnw", {
-                method: "POST",
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    form.style.display = 'none';
-                    document.getElementById('successMsg').style.display = 'block';
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            alert(data["errors"].map(error => error["message"]).join(", "));
-                        } else {
-                            alert("Oops! There was a problem submitting your form");
-                        }
-                    });
-                }
-            }).catch(error => {
-                alert("Oops! There was a problem submitting your form");
-            });
-        });
-    </script>
 
 </body>
 </html>
